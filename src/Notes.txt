@@ -1,0 +1,128 @@
+ Q What is Big O Notation ?
+ A.Defining "Time complexity" and "Space Complexity"
+   So in short its analysing the best performat solution to a given problem
+ 
+ Q. Why do we care about perfomace ?
+ A. 1. its about code perfomance
+    2. Useful discussing diffrent solutions form perfomace prosective
+    3. Identifying skow perfomace by analysing it through Space and Time complexity
+ 
+ Q. Which code is better ?
+ A. 1. Faster ?
+    2. less memory-intsive ?
+    3. More Readeable ?
+ 
+ For Bio O prosective 1 and 2 are important which can xcome at a cost 
+ of 3
+
+ Q. How to check perfomace of code?
+ A. we can user perfomace.now() fucntion of JS.
+    issues with perfomace.now() is fine but its not reliable with diffrent machine
+    or even same machine if run consicutively
+    => Good solution for this is Big O Notation
+
+  Q. Counting Operations
+  Ans1. all the calculations (+,-,= etc.)  
+
+  Eg: function addUpTo(n) {
+    let total = 0;
+      for (let i = 0; i <= n; i++) {
+      total += i;
+    }
+   return total;
+  }
+  No. of Operations is (eventually) bounded by mutiple of n(say, 25n)
+  Big o Notation: O(n)
+  Tip: check if the loop grows with value of n
+
+    In above fucntion there are 5 calculations i.e. ++, +=, =
+    and when the loop is running n times then these 4 calculations
+    will be become n*4 and then total = 0 which runs only 1 time 
+    so 5 calculations in total 
+
+    But the above way of calculation is quiet compliated
+    
+   Ans2. calculating through Big O
+      it calculates based on the no. of input to a fucntion and as 
+      it grows and how runtime is changed 
+
+   function addUpTo(n) {
+      return n * (n+1) /2
+   } 
+   Always 3 calculations
+   Big o Notation: O(1)
+
+   Examples
+   function logAtleast5(n) {
+      for (let i = 0; i <= Math.max(5, n); i++) {
+        console.log(i);
+      }
+    }
+
+    => O(n) 
+    As it will grow based on the value of n
+
+    function logAtleast5(n) {
+      for (let i = 0; i <= Math.min(5, n); i++) {
+        console.log(i);
+      }
+    }
+    => O(1)
+    it will be 1 as at max it will till 5 
+
+   Rule of Thumb for determining Time Complexity using Big O Notation
+   => 1. Constant doesn't matter
+      2. Airthmetic Operations are Constant
+      3. Varible assignment is Constant
+      4. Accessing elments in an array (by index) or Object (key) is Constant
+      5. In a loop the complexity is the lenght of loop times the complexity of 
+         whatever happens inside of the loop
+
+    Rule of Thumb for determining Space Complexity using Big O Notation      
+    => 1. Most Primitives (boolean, numbers, undified, null) are Constant Space
+       2. Strings require O(n) space (where n is the string length)
+       3. Reference types are generally O(n), where n in the lenght(for arrays)
+          or the number of keys(for objects)
+
+    function sum(n) {
+    let total = 0;
+        for (let i = 0; i <= n; i++) {
+          total += i;
+        }
+      return total;
+    }
+
+    Big O Notation (Space Complexity): O(1)
+    here its calculated based on the variable declaration
+    and the size of total = 0 and let i = 0 wil remain Constant
+
+    fucntion double(arr){
+      let newArray = [];
+      for (let i = 0; i <= arr.lenght; i++) {
+        newArray.push(2* arr[i]);
+      }
+      return newArray;
+    }
+
+    Big O Notation (Space Complexity): O(n)
+    here the space complexity is calculated as with arr increase increase in
+    size will result in the increase in newArray declared inside function so 
+    increase in size of variable(newArray) declaration result in the space occupied in
+    in the memory
+
+    Logarithms
+    Sometimes big O expressions involve more complex mathmetical Operations
+    and that can be calculated through Logarithms
+
+    eg:
+    log2(8) = 3
+     i.e when we divide 8 by 2 it will take 3 times to be 0  
+     8/2 = 4
+     4/2 = 2
+     4/2 = 1
+     So, log2(8) = 3
+
+     The Logarithmsof a number rougly mesures the no. of times you can divide the number by 2
+     before you get a value thats less than pr equal to 1
+
+
