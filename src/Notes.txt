@@ -5,14 +5,14 @@
  Q. Why do we care about perfomace ?
  A. 1. its about code perfomance
     2. Useful discussing diffrent solutions form perfomace prosective
-    3. Identifying skow perfomace by analysing it through Space and Time complexity
+    3. Identifying slow perfomace by analysing it through Space and Time complexity
  
  Q. Which code is better ?
  A. 1. Faster ?
     2. less memory-intsive ?
     3. More Readeable ?
  
- For Bio O prosective 1 and 2 are important which can xcome at a cost 
+ For Bio O prosective 1 and 2 are important which can come at a cost 
  of 3
 
  Q. How to check perfomace of code?
@@ -35,35 +35,31 @@
   Big o Notation: O(n)
   Tip: check if the loop grows with value of n
 
-    In above fucntion there are 5 calculations i.e. ++, +=, =
-    and when the loop is running n times then these 4 calculations
-    will be become n*4 and then total = 0 which runs only 1 time 
-    so 5 calculations in total 
-
-    But the above way of calculation is quiet compliated
+  In above fucntion there are 5 calculations i.e. ++, +=, =
+  and when the loop is running n times then these 4 calculations
+  will be become n*4 and then total = 0 which runs only 1 time 
+  so 5 calculations in total 
+  But the above way of calculation is quiet compliated
     
-   Ans2. calculating through Big O
-      it calculates based on the no. of input to a fucntion and as 
-      it grows and how runtime is changed 
+  Ans2. calculating through Big O
+        it calculates based on the no. of input to a fucntion and as 
+        it grows and how runtime is changed 
 
-   function addUpTo(n) {
-      return n * (n+1) /2
-   } 
-   Always 3 calculations
-   Big o Notation: O(1)
-
-   Examples
+  function addUpTo(n) {
+     return n * (n+1) /2
+  } 
+  Always 3 calculations
+  Big o Notation: O(1)
+  Examples
+  function logAtleast5(n) {
+     for (let i = 0; i <= Math.max(5, n); i++) {
+       console.log(i);
+     }
+   }
+   => O(n) 
+   As it will grow based on the value of n
    function logAtleast5(n) {
-      for (let i = 0; i <= Math.max(5, n); i++) {
-        console.log(i);
-      }
-    }
-
-    => O(n) 
-    As it will grow based on the value of n
-
-    function logAtleast5(n) {
-      for (let i = 0; i <= Math.min(5, n); i++) {
+     for (let i = 0; i <= Math.min(5, n); i++) {
         console.log(i);
       }
     }
